@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="tracker">
+<head>
+  <title>Music reviewer</title>
+
+  <base href="/" />
+
+  {% include 'stylesheets.html' %}
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+  <div class="container" ng-controller="homeCtrl">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+          <div class="text-center">
+              <h2>Welcome to visite our website.</h2>
+              <br/><br/><br/><br/><br/>
+              <a class="btn btn-primary" ng-click="startTest()">Start</a>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  {% include 'javascripts.html' %}
+</body>
+</html>

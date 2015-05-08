@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="tracker">
+<head>
+  <title>Music reviewer ( tracker test page )</title>
+
+  <base href="/" />
+
+  {% include 'stylesheets.html' %}
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+  <div class="container" ng-controller="trackerCtrl">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <div ng-show="isMusicPlay && !testCompleted">
+          <div class="clearfix">
+            <button class="btn btn-large btn-danger pull-right" ng-click="skip()">Skip</button>
+          </div>
+          <h4>Play mode <span ng-bind="playStep"></span></h4>
+          <h5 ng-bind="testMusics[playStep-1].name"></h5>
+          <div class="text-center">
+            This is Musaic Player
+          </div>
+          <progressbar animate="false" value="playProgress" type="success"><b><span ng-bind="playProgress"></span>%</b></progressbar>
+        </div>
+        <div ng-show="!isMusicPlay && !testCompleted">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="inputEmail3" class="control-label">Have you heard ever this song before?</label>
+              <div class="col-md-offset-2 col-sm-10 radio">
+                <label>
+                  <input type="radio" name="optionHeard" value="true" ng-model="feedbackData.isHeard">
+                  Yes
+                </label>
+              </div>
+              <div class="col-md-offset-2 col-sm-10 radio">
+                <label>
+                  <input type="radio" name="optionHeard" value="false" ng-model="feedbackData.isHeard">
+                  No
+                </label>
+              </div>
+            </div>
+            <div class="form-group" ng-show="isSkip">
+              <label for="inputPassword3" class="ontrol-label">main reason for skipping?</label>
+              <div class="col-md-offset-2 col-sm-10 radio">
+                <label>
+                  <input type="radio" name="optionReason" value="NOT_INTERESTING" ng-model="feedbackData.skipReason">
+                  Not interesting or exciting enough
+                </label>
+              </div>
+              <div class="col-md-offset-2 col-sm-10 radio">
+                <label>
+                  <input type="radio" name="optionReason" value="TOO_LONG" ng-model="feedbackData.skipReason">
+                  Interesting but too long or repetitive
+                </label>
+              </div>
+              <div class="col-md-offset-2 col-sm-10 radio">
+                <label>
+                  <input type="radio" name="optionReason" value="NOT_MY_TASTE" ng-model="feedbackData.skipReason">
+                  Just not my taste
+                </label>
+              </div>
+              <div class="col-md-offset-2 col-sm-10 radio">
+                <label>
+                  <input type="radio" name="optionReason" value="NOT_RIGHT_MOOD" ng-model="feedbackData.skipReason">
+                  Not the right mood, but would listen to it again
+                </label>
+              </div>
+            </div>
+            <div class="col-md-offset-2 col-sm-10">
+              <button class="btn btn-success" ng-click="feedback()" ng-show="playStep==MUSIC_COUNT">Finish</button>
+              <button class="btn btn-success" ng-click="feedback()" ng-show="playStep!=MUSIC_COUNT">Next</button>
+            </div>
+          </form>
+        </div>
+        <div ng-show="testCompleted">
+          Thank you for your review.
+          <a href="/">Home</a>
+          <div>
+            <a class="btn btn-primary">Share with emil</a>
+            <a class="btn btn-primary">Share with facebook</a>
+            <a class="btn btn-primary">Share with twitter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  {% include 'javascripts.html' %}
+</body>
+</html>
