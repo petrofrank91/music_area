@@ -6,10 +6,9 @@
 [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/en/latest/) and
 [Node.js](http://nodejs.org/).*
 
-* Fork this repository.
-* `$ git clone git@github.com:<your username>/music-tester.git`
-* `$ mkvirtualenv thinkster-djangular`
-* `$ cd music-tester/`
+* `$ git clone https://github.com/petrofrank91/music_area.git`
+* `$ mkvirtualenv music-area`
+* `$ cd music_area/`
 * `$ pip install -r requirements.txt`
 * `$ npm install -g bower`
 * `$ npm install`
